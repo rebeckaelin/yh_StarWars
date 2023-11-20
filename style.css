@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+body {
+  width: 1440px;
+  margin: 0 auto;
+  background-color: black;
+}
+/* ********** HEADER ********** */
+header {
+  background-color: black;
+  height: 353px;
+  width: 1440px;
+  background-image: url(./header-background.png);
+}
+header h1 {
+  color: rgba(255, 214, 0, 1);
+  padding-top: 105px;
+  padding-left: 67px;
+  font-family: "Ropa Sans", sans-serif;
+  font-size: 64px;
+  line-height: 69px;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+/* ********** MAIN ********** */
+main {
+  background: rgba(66, 66, 66, 1);
+  width: 1440px;
+  height: 720px;
+  display: flex;
+  justify-content: space-evenly;
+}
+/* ********** CHARACTERS BOX & H2 ********** */
+.characters-box {
+  height: 624px;
+  width: 484px;
+  background-color: #c4c4c4;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: -2.5rem;
+}
+.characters-box h2 {
+  text-align: center;
+  color: rgba(255, 214, 0, 1);
+  background-color: rgba(83, 85, 86, 1);
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  padding: 1rem;
+  font-family: "Ropa Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+/* ********** LIST OF CHARACTERS ********** */
+li {
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.15em;
+  padding: 0.6rem;
+}
+li:nth-child(even) {
+  background: rgba(142, 142, 142, 1);
+}
+li:hover {
+  background-color: rgba(68, 68, 68, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+/* ********** CHANGE PAGE ********** */
+.change-page__wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  font-family: "Ropa Sans", sans-serif;
+  font-size: 2rem;
+}
+.change-page__wrapper p {
+  position: relative;
+}
+#previous:hover::before {
+  position: absolute;
+  left: -20px;
+  content: "< ";
+}
+#next:hover::after {
+  position: absolute;
+  right: -20px;
+  content: " >";
+}
+
+/* ********** DETAILS BOX & H2 ********** */
+.details-box h2 {
+  text-align: center;
+  color: rgba(255, 214, 0, 1);
+  background-color: rgba(116, 134, 135, 1);
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  padding: 1rem;
+  font-family: "Ropa Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+.details-box {
+  height: 625.5px;
+  width: 484px;
+  background-color: #c4c4c4;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+
+  margin-top: -2.5rem;
+}
+/* ************ */
+.character-details {
+  padding: 1rem 1.5rem;
+  height: 267px;
+  font-family: "Roboto", sans-serif;
+}
+.character-details h3 {
+  font-size: 1.9rem;
+  padding-bottom: 0.5rem;
+  line-height: 35px;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+}
+.character-details p {
+  padding-bottom: 0.3rem;
+  font-size: 1.2rem;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+}
+
+/* ********** MORE INFO BUTTONS ********** */
+.info-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding-right: 4rem;
+  height: 51px;
+  background-color: #c4c4c4;
+  padding-left: 0.3rem;
+  padding-right: 0.8rem;
+}
+.info-buttons button {
+  padding: 0.8rem;
+  border: none;
+  background: rgba(225, 222, 222, 1);
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  line-height: 14px;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+.info-buttons button:hover {
+  background-color: #8e8e8e;
+  color: rgba(255, 214, 0, 1);
+}
+.info-buttons button.active {
+  background-color: #8e8e8e;
+  color: rgba(255, 214, 0, 1);
+}
+/* ********** MORE INFO ********** */
+.more-info {
+  height: 244px;
+  background-color: #8e8e8e;
+  overflow-y: scroll;
+  overflow: auto;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+.more-info h3 {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.9rem;
+  padding-bottom: 0.5rem;
+  line-height: 35px;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  color: whitesmoke;
+}
+.more-info p {
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+  color: whitesmoke;
+}
+/* ********** LOADING ANIMATION ********** */
+.loading,
+.loading-more-info {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 18px solid rgba(116, 134, 135, 1);
+  border-top: 18px solid rgba(255, 214, 0, 1);
+  align-self: center;
+  animation: spin 3s linear infinite;
+  padding: 1.5rem;
+  margin: 12rem;
+}
+
+.loading-more-info {
+  margin: 2rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
