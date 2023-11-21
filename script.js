@@ -1,5 +1,5 @@
 const baseUrl = `https://swapi.dev/api/`;
-let planetUrl; //variabel för att kunna hämta info om planeten
+let planetUrl;
 let speciesUrl;
 let vehicleUrl;
 let starshipUrl;
@@ -12,8 +12,6 @@ const moreInfo = document.querySelector(".more-info");
 const nextPage = document.getElementById("next");
 const previousPage = document.getElementById("previous");
 const loading = document.querySelector(".loading");
-
-buttons.classList.remove("active");
 
 showLoading();
 //funktion för att hämta karaktärer via API
@@ -71,8 +69,6 @@ getCharactersData();
 //funktion med loop för att få ut x antal karaktärer
 function createCharactersList(characters) {
   for (const character of characters) {
-    // console.log(char);
-
     displayCharacters(character); //kallar på funktionen som skapar li-tags för att skapa en li per karaktär
   }
 }
@@ -149,6 +145,7 @@ function makeInfoButtons() {
   speciesButton.innerText = "species";
   vehiclesButton.innerText = "vehicles";
   starshipButton.innerText = "starship";
+
   buttons.append(planetButton); //gör så knapparna blir synliga på sidan
   buttons.append(speciesButton);
   buttons.append(vehiclesButton);
@@ -318,9 +315,3 @@ function showLoading(load = loading) {
 function hideLoading(load = loading) {
   load.style.display = "none";
 }
-
-//loop för att lägga till & ta bort klass som gör så att vald knapp får samma färg som "more info"
-// infoButtons.forEach((btn) => {
-//   btn.classList.remove("active");
-// });
-// starship.classList.add("active");
