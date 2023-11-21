@@ -13,6 +13,8 @@ const nextPage = document.getElementById("next");
 const previousPage = document.getElementById("previous");
 const loading = document.querySelector(".loading");
 
+buttons.classList.remove("active");
+
 showLoading();
 //funktion för att hämta karaktärer via API
 async function getCharactersData() {
@@ -41,6 +43,7 @@ async function getCharactersData() {
       createCharactersList(nextPage.results);
       //om next inte innehåller ett API visas en alert
     } else {
+      hideLoading();
       alert("Du är på sista sidan! Testa att gå åt andra hållet :)");
     }
   });
@@ -58,6 +61,7 @@ async function getCharactersData() {
       createCharactersList(prevPage.results);
       //om next inte innehåller ett API visas en alert
     } else {
+      hideLoading();
       alert("Du är på första sidan! Testa att gå åt andra hållet :)");
     }
   });
@@ -145,18 +149,17 @@ function makeInfoButtons() {
   speciesButton.innerText = "species";
   vehiclesButton.innerText = "vehicles";
   starshipButton.innerText = "starship";
-
   buttons.append(planetButton); //gör så knapparna blir synliga på sidan
   buttons.append(speciesButton);
   buttons.append(vehiclesButton);
   buttons.append(starshipButton);
 
-  let infoButtons = [planet, species, vehicles, starship];
-
   planet = document.getElementById("planet");
   species = document.getElementById("species");
   vehicles = document.getElementById("vehicles");
   starship = document.getElementById("starship");
+
+  let infoButtons = [planet, species, vehicles, starship];
 
   // ********** KLICKFUNKTIONER FÖR INFOKNAPPARNA **********//
 
@@ -207,20 +210,22 @@ function makeInfoButtons() {
       const none = document.createElement("h3");
       none.innerText = "Has none";
       moreInfo.append(none);
+      infoButtons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      vehicles.classList.add("active");
     } else {
       //visar animation "loading"
       showLoading(loadingMoreInfo);
-
+      infoButtons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      vehicles.classList.add("active");
       for (const vehicleInfo of vehicleUrl) {
         //när du klickar på knappen skall info hämtas...
         getMoreInfo(vehicleInfo); //...från denna funktion}
       }
     }
-    //loop för att lägga till & ta bort klass som gör så att vald knapp får samma färg som "more info"
-    infoButtons.forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    vehicles.classList.add("active");
   });
 
   starship.addEventListener("click", () => {
@@ -236,20 +241,22 @@ function makeInfoButtons() {
       const none = document.createElement("h3");
       none.innerText = ":(";
       moreInfo.append(none);
+      infoButtons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      starship.classList.add("active");
     } else {
       //visar animation "loading"
       showLoading(loadingMoreInfo);
-
+      infoButtons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      starship.classList.add("active");
       for (const starshipInfo of starshipUrl) {
         //när du klickar på knappen skall info hämtas...
         getMoreInfo(starshipInfo); //...från denna funktion}
       }
     }
-    //loop för att lägga till & ta bort klass som gör så att vald knapp får samma färg som "more info"
-    infoButtons.forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    starship.classList.add("active");
   });
 }
 
@@ -311,3 +318,9 @@ function showLoading(load = loading) {
 function hideLoading(load = loading) {
   load.style.display = "none";
 }
+
+//loop för att lägga till & ta bort klass som gör så att vald knapp får samma färg som "more info"
+// infoButtons.forEach((btn) => {
+//   btn.classList.remove("active");
+// });
+// starship.classList.add("active");
